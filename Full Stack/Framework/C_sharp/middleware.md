@@ -77,3 +77,43 @@ To create this middleware, you need:
 
 ## Right Order of Middleware
 ![[Pasted image 20251230184554.png]]
+
+
+## UseWhen
+![[Pasted image 20251231114213.png]]
+
+
+
+
+
+## Note from Udemy
+**Key Points to Remember**
+
+- **Middleware Order is Crucial:** The order in which you register middleware matters, as they are executed in sequence.
+    
+- **Use** `**app.Use**` **for Non-Terminal Actions:** Use it for tasks like authentication, logging, or modifying headers/bodies.
+    
+- **Use** `**app.Run**` **to Terminate the Pipeline:** Employ it when you want to generate the final response.
+    
+- **Short-Circuiting:** Middleware can choose to short-circuit the pipeline (not call `next`) and return a response early if needed.
+
+
+
+
+While ASP.NET Core provides a plethora of built-in middleware components, sometimes you need to create your own to address specific requirements unique to your application. Custom middleware allows you to:
+
+- **Encapsulate logic:** Bundle related operations (e.g., logging, security checks, custom headers) into a reusable component.
+    
+- **Customize behavior:** Tailor the request/response pipeline to precisely match your application's needs.
+    
+- **Improve code organization:** Keep your middleware code clean and maintainable.
+
+**Anatomy of a Custom Middleware Class**
+
+1. **Implement** `**IMiddleware**`**:** This interface requires a single method: `InvokeAsync(HttpContext context, RequestDelegate next)`. This is the heart of your middleware's logic.
+    
+2. `**InvokeAsync or Invoke**` **Method:**
+    
+    - `context`: The `HttpContext` provides access to the request and response objects.
+        
+    - `next`: The `RequestDelegate` allows you to call the next middleware in the pipeline.
