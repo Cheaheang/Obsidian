@@ -85,3 +85,69 @@ app.Map("constrains-regex/{month:regex(^(apr|jul|oct|jan)$)}", async context =>
 
 
 ```
+
+## Custom Route Constraint Class
+Create class for constraint
+To make it work you need to add(AddRouting) to your class to program.cs
+if the regular express(regex) didn't match it return false 
+Use this method when you want to reuse the route parameter format
+
+create class for Custom Constriant
+```cs
+public class MonthCustomContrains : IRouteConstraint
+{
+        public bool Match(HttpContext? httpContext, IRouter? route, string routeKey, RouteValueDictionary values, RouteDirection routeDirection)
+        {
+            if(!values.ContainsKey(routeKey))
+            {
+                return false;
+            }
+
+            Regex regex = new Regex($"^(apr|jul|oct|jan)$");
+            // By default route value is returned as object
+            string? monthValue = Convert.ToString(values[routeKey]);
+
+            if(regex.IsMatch(monthValue))
+            {
+                return true;
+            }
+            return false;
+
+
+        }
+}
+```
+In program.cs
+```cs
+using RoutingExample.CustomConstrains;
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddRouting(option =>
+{
+    option.ConstraintMap.Add("months", typeof(MonthCustomContrains));
+});
+
+app.Map("route-constrains-regex/{month:months}", async context =>
+{
+    string? month = Convert.ToString(context.Request.RouteValues["month"]);
+    await context.Response.WriteAsync($"in Map with route constrain regex {month} as constrain value ");
+});
+```
+
+## Endpoint Selection order
+
+If you have route with the same name or similar it will compare via below. if it higher it execute first
+
+| Description                                                                                                                | Example                              |
+| -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------ |
+| URL template with more segments                                                                                            | "a/b/c/d" is higher than "a/b/c"     |
+| URL template with literal text has more precedence than a parameter segment.                                               | "a/b" is higher than "a/{parameter}" |
+| URL template that has a parameter segment with constraint has more precedence than a parameter segment without constraints | "a/{b:int}" is higher than "a/{b}"   |
+| Catch-all parameters (**)                                                                                                  | "a/{b}" is higher than "a/**"        |
+|                                                                                                                            |                                      |
+
+## WebRoot and UseStaticFiles()
+The default WebRoot folder is "wwwrot"
+You can configutre manually
+**WebRoot**
+![[Pasted image 20260103122950.png]]

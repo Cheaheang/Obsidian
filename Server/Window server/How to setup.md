@@ -21,3 +21,49 @@ git clone
 - **Rule port :** Select Port
 - Select **Allow the connection**
 - Input name and description
+
+## Create tunnel from Cloudflared
+### Download cloudflared
+
+On your **Windows Server**:
+https://developers.cloudflare.com/cloudflare-one/connections/connect-apps/install-and-setup/installation
+
+Download **cloudflared-windows-amd64.exe**
+
+Rename it to :
+```
+cloudflared.exe
+```
+Place it in :
+```
+C:\cloudflared\
+```
+Go to that directory and login
+```
+cd \
+cloudflared.exe login
+cloudflared.exe tunnel create cheaheang-tunnel
+```
+Create folder and file.yml
+```
+mkdir cloudflared
+cd cloudflared
+echo hello word > config.yml
+```
+Go to that file and remove the text and paste this text:
+```
+tunnel: cheaheang-tunnel
+credentials-file: C:\Users\Adminstrator\.cloudflared\<TUNNEL-ID>.json
+
+ingress:
+  - hostname: cheaheang.dev
+    service: http://localhost:80
+  - hostname: www.cheaheang.dev
+    service: http://localhost:80
+  - service: http_status:404
+
+```
+Then run this cmd
+```
+cloudflared.exe tunnel --config C:\cloudflared\config.yml run cheaheang-tunnel
+```
