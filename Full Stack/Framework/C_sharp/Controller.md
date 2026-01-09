@@ -75,3 +75,87 @@ It is the parent interface for all action result classes such as ContentResult, 
 Use it when there are multiple return type (Content_result, File)
 
 ![[Pasted image 20260103194007.png]]
+
+**### Status code Result**
+**Error status code**
+- StatusCodeResult
+```cs
+	return StatusCode(401);
+```
+- UnauthorizedResult
+```cs
+                // ================ Method 1 =================
+                //Response.StatusCode = 401;
+                //return Content("User must be authenticated");
+                // ================ Method 2 =================
+                return Unauthorized("User must be authenticated");
+
+```
+- BadRequestResult
+```cs
+                // ================ Method 1 =================
+                //Response.StatusCode = 400;
+                //return Content("Book id can't be less than 1 ");
+                // ================ Method 2 =================
+                //return new BadRequestResult();
+                // ================ Method 3 =================
+                return BadRequest("Book id can't be less than 1 ");
+
+```
+- NotFoundResult
+```cs
+                // ================ Method 1 =================
+                //Response.StatusCode = 400;
+                //return Content("Book id can't be more than 1000 ");
+
+                // ================ Method 2 =================
+                return NotFound("Book id can't be more than 1000 ");
+
+```
+
+### Redirect Results
+**Fun fact:** when use redirect, It will give status 302 Found
+
+| Status | Description      |
+| ------ | ---------------- |
+| 301    | Move permanently |
+| 302    | Temperary Move   |
+There are 3 redirectory
+- **localRedirectResult**
+Use **LocalRedirect**, when you want direct via url 
+```cs
+// ================ Method 1 LocalRedirectResult 302 =================
+	            return new LocalRedirectResult($"store/books/{bookId}");
+// ================ Method 2 LocalRedirectResult 302 =================
+                return  LocalRedirect($"store/books/{bookId}");
+// ================ Method 3 LocalRedirectResult 301 =================
+                return LocalRedirectPermanent($"store/books/{bookId}");
+
+
+```
+- **RedirectToAction**
+Use **RedirectToAction**, when you want to have controller-name, function-name
+```cs
+// ================ Method 1 =================
+	return new RedirectToActionResult("Index", "StoreController1", new {}, true);
+// ================ Method 2 =================
+    return RedirectToActionPermanent("Index","StoreController1");
+// ================ Method 3 ==================
+    return RedirectToAction("Index", "StoreController1", new { id = bookId});
+
+```
+- RedirectResult
+Use **RedirectResult**, when you want to direct one domain to other
+```cs
+            // ================ Method 1 Redirect =================
+            return Redirect($"store/books/{bookId}");
+            // ================ Method 2 Redirect =================
+            return RedirectPermanent($"store/books/{bookId}");
+
+```
+- 
+**When to use LocalRedirect, RedirectToAction**
+
+
+**Most use is RedirectToAction**
+IF the controller is complex use LocalRedirect
