@@ -62,3 +62,16 @@ If you don't want to run with launchStting
 	- $Env:ASPNETCORE_ENVIRONMENT="Staging"
 
 **Fun fact:** when you delete launchSetting.json. It will choose production enviroment
+
+
+#### Configuration as Environment Variable
+
+in **Window Powershell**
+```cs
+$Env:ParentKey__ChildKey = "value"
+// ex: $Env:weatherapi__ClientID="Classic"
+	dotnet run --no-launch-profile
+```
+
+- It is one of the most secured way of setting-up sensitive values in configuration.
+- __(underscore and underscore) is the separator between parent key and child key
