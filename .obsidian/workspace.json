@@ -4,21 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "651c44bcd2ed70e7",
+        "id": "efcb546fe1ebc152",
         "type": "tabs",
         "children": [
           {
-            "id": "21c3c3a51896e013",
+            "id": "4e61bf4b55bf578f",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "image",
               "state": {
-                "aFile": ".obsidian/app.json",
-                "bFile": ".obsidian/app.json",
-                "aRef": ""
+                "file": "Pasted image 20260113095749.png"
               },
-              "icon": "diff",
-              "title": "Diff: app.json  (Working Tree)"
+              "icon": "lucide-image",
+              "title": "Pasted image 20260113095749"
             }
           }
         ]
@@ -191,8 +189,13 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "21c3c3a51896e013",
+  "active": "4e61bf4b55bf578f",
   "lastOpenFiles": [
-    "Full Stack/Framework/C_sharp/Environment.md"
+    "Full Stack/Framework/C_sharp/Environment.md",
+    "Full Stack/Framework/C_sharp/Tip.md",
+    "Full Stack/Framework/Angular/Introduction.md",
+    "Pasted image 20260113095749.png",
+    "Full Stack/Framework/C_sharp/Untitled 1.md",
+    "Full Stack/Framework/Angular"
   ]
 }
