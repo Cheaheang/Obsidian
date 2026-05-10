@@ -1,4 +1,4 @@
- **Setup proejct**
+	 **Setup proejct**
 ```
 sudo apt update && sudo apt upgrade -y
 ```
@@ -7,13 +7,6 @@ Install nginx
 sudo apt install nginx -y
 ```
 Install PHP 
-```
-sudo apt install software-properties-common -y
-sudo add-apt-repository ppa:ondrej/php
-sudo apt update
-
-sudo apt install php8.2 php8.2-cli php8.2-mbstring php8.2-xml php8.2-bcmath php8.2-curl php8.2-mysql -y
-```
 ```
 # Add PHP repo
 sudo apt update
@@ -53,13 +46,30 @@ EXIT;
 
 // Make your .env according to this mysql Config
 ```
+**Config SSH & Clone**  
+```
+ssh-keygen -t ed25519 -C "info"
+cat ~/.ssh/id_ed25519.pub
+
+// verify 
+ssh -T git@github.com
+
+//allow permission 
+cd /var
+sudo chmod 777 www/
+
+git clone git@github.com:Cheaheang/shop_website.git
+git checkout dev
+```
+
 **Config Project**(laravel+Vue)
 ```
+cp .env.example .env
+
 composer install 
 npm install
-cp .env.example .env
+
 php artisan key:generate
-php artisan 
 php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
 php artisan migrate
 php artisan storage:link
@@ -67,7 +77,7 @@ php artisan storage:link
 **Hosting**
 Create file in nignx(name: shop)
 ```
-sudo nano /etc/nginx/sites-available/shop
+sudo vim /etc/nginx/sites-available/shop
 ```
 Past this config 
 ```
@@ -112,7 +122,7 @@ sudo chown -R www-data:www-data /var/www/shop_website
 ```
 Then Build the vue project 
 ```
- 
+npm run build
 ```
 
 
@@ -139,4 +149,33 @@ sudo systemctl stop apache2
 sudo systemctl disable apache2
 
 sudo systemctl start nginx
+```
+
+**Config Domain**
+- namecheap
+In namecheap:  Go to **Domain List** -> Manage(Your domain) -> **NAMESERVERS**(SECTION) : Seelct **Namecheap BasicDNS ** -> **Advance DNS** -> HOST RECORDS(SECTION) : put ur ip(EC2) to both HOST(@, www)
+- nginx
+change server name 
+```
+server_name 13.54.61.118;
+```
+to
+```
+server_name cheaheang.dev www.cheaheang.dev;
+```
+
+**Enable HTTPS** 
+```
+sudo apt update
+sudo apt install certbot python3-certbot-nginx
+sudo certbot --nginx -d cheaheang.dev -d www.cheaheang.dev
+```
+clear old dns
+```
+ipconfig /flushdns
+```
+**Tips:**
+Check domain attach to ip
+```
+nslookup cheaheang.dev
 ```
