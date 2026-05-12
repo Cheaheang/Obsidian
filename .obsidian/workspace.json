@@ -11,15 +11,44 @@
             "id": "4e61bf4b55bf578f",
             "type": "leaf",
             "state": {
-              "type": "image",
+              "type": "markdown",
               "state": {
-                "file": "Pasted image 20260113095749.png"
+                "file": "Project/EOS/Flow.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "lucide-image",
-              "title": "Pasted image 20260113095749"
+              "icon": "lucide-file",
+              "title": "Flow"
+            }
+          },
+          {
+            "id": "59989ad883d38967",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Full Stack/Javascript.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Javascript"
+            }
+          },
+          {
+            "id": "79701ea1df1b3a1b",
+            "type": "leaf",
+            "state": {
+              "type": "release-notes",
+              "state": {
+                "currentVersion": "1.11.7"
+              },
+              "icon": "lucide-book-up",
+              "title": "Release Notes 1.11.7"
             }
           }
-        ]
+        ],
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -189,12 +218,23 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "4e61bf4b55bf578f",
+  "active": "79701ea1df1b3a1b",
   "lastOpenFiles": [
-    "Full Stack/Framework/C_sharp/Environment.md",
+    "Full Stack/Concept/Frontend/SEO.md",
+    "Project/EOS/To Do.md",
+    "Untitled.base",
+    "Project/EOS/hide summary.md",
+    "Project/EOS/create deal.md",
+    "Project/EOS/Instructions.md",
+    "Project/EOS/Flow.md",
+    "Full Stack/Framework/Entity Framework.md",
+    "Project/EOS",
+    "Full Stack/Framework/C_sharp/Model Binding.md",
     "Full Stack/Framework/C_sharp/Tip.md",
-    "Full Stack/Framework/Angular/Introduction.md",
+    "Full Stack/Framework/C_sharp/Tip from video.md",
+    "Full Stack/Framework/C_sharp/Environment.md",
     "Pasted image 20260113095749.png",
+    "Full Stack/Framework/Angular/Introduction.md",
     "Full Stack/Framework/C_sharp/Untitled 1.md",
     "Full Stack/Framework/Angular"
   ]

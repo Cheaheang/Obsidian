@@ -1,0 +1,4 @@
+ - [ ] Add column is_business_case_special to deal 
+ - [ ] process of technical in eze24
+ - [ ] process of sale operation in eze24
+ - [ ] Service_config_form (ask technical)

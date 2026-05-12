@@ -1,0 +1,31 @@
+
+GPON
+		create deal. 
+		- **No** need technical. 
+			- study standard price. 
+				- IF Yes Generate Quotation
+				- if **No** generate business case, then wait for approval. 
+					- If the approve get **No**, repeat the Generate business case. 
+					- IF **Yes** Generate Quotation. Then Submit proposal and quotation to customer . Then check is customer Accept.
+						- IF **Yes** , is customer want Service application or Agreement. 
+							- IF customer want Agreement, Sales will give Service Agreement sub-process. Then generate Service-Application. Sales will ask for advance-payment.
+							- IF customer want Service application, Sales will generate Service application and send to customer. Customer will review & sign on Service application. Then customer send back Service application to Sales. Sales will ask for advance-payment. 
+								- IF **No**, It will wait for approval. If it reject it will loop back to advance-payment again. 
+								- IF **Yes**, Sales will ask if customer want Pro-format invoice.  
+									- Customer **Yes** will generate Pay based on Invoice and follow the Pro-Format invoice process.
+									- IF Customer **No** will pay base on Quotation. Then Customer Process to make Payment.  Then cashier Verify Payment, after that cashier Issue receipt. After that Sales need Confirm Service Application. Then Biz solution need to verify service application and payment(eze24), then Customer onboarding, after that generate SID and raise work order then Continue of PO online. then Send receipt to customer.
+		- **Yes** need technical 
+			- Request technical solution. Then Technical looking for requirement collection. Technical will work on solution design. Technical will ask for require quotation from supplier?
+				- IF **Yes** Get the quotation from supplier. Technical will propost Solution proposal 
+				- IF **No** Technical will create Solution Proposal then submit solution proposal. Then Receive solution proposal from Sales. Then move to Stand price.
+					-IF Yes Generate Quotation
+					-if **No** generate business case, then wait for approval. 
+						- If the approve get **No**, repeat the Generate business case. 
+						- IF **Yes** Generate Quotation. Then Submit proposal and quotation to customer . Then check is customer Accept.
+							- IF **Yes** , is customer want Service application or Agreement. 
+								- IF customer want Agreement, Sales will give Service Agreement sub-process. Then generate Service-Application. Sales will ask for advance-payment.
+								- IF customer want Service application, Sales will generate Service application and send to customer. Customer will review & sign on Service application. Then customer send back Service application to Sales. Sales will ask for advance-payment. 
+									- IF **No**, It will wait for approval. If it reject it will loop back to advance-payment again. 
+									- IF **Yes**, Sales will ask if customer want Pro-format invoice.  
+										- Customer **Yes** will generate Pay based on Invoice and follow the Pro-Format invoice process.
+										- IF Customer **No** will pay base on Quotation. Then Customer Process to make Payment.  Then cashier Verify Payment, after that cashier Issue receipt. After that Sales need Confirm Service Application. Then Biz solution need to verify service application and payment(eze24), then Customer onboarding, after that generate SID and raise work order then Continue of PO online. then Send receipt to customer.
