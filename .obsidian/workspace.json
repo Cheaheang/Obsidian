@@ -218,8 +218,14 @@
       "obsidian-git:Open Git source control": false
     }
   },
-  "active": "79701ea1df1b3a1b",
+  "active": "ba9aea6a3bd5e499",
   "lastOpenFiles": [
+    "Server/Ubuntu-server/Config EC2 Server (Laravel, vue).md",
+    "Server/Ubuntu server & Virtual Machine.md",
+    "Server/Docker/Private Docker.md",
+    "Server/Docker",
+    "Full Stack/Websocket/Ideal.md",
+    "Full Stack/Websocket",
     "Full Stack/Concept/Frontend/SEO.md",
     "Project/EOS/To Do.md",
     "Untitled.base",
